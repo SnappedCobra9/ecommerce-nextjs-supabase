@@ -1,4 +1,4 @@
-# Lina Heels — Documentación completa del proyecto
+# — Documentación completa del proyecto
 
 ## 1. Qué es esto
 
