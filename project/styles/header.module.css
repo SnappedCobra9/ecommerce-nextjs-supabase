@@ -1,0 +1,199 @@
+.header {
+  background-color: #f6f5f1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+  text-transform: uppercase;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease,
+              height 0.3s ease;
+}
+
+.atTop {
+  background-color: transparent;
+}
+
+.scrolled {
+  background-color: #fcfcfc;
+  height: 100px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.visible { transform: translateY(0); }
+.hidden { transform: translateY(-100%); }
+
+.navSide {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+}
+
+.actions {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navSideRight {
+  display: flex;
+  gap: 30px;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo h1 {
+  font-size: 44px;
+  font-weight: 800;
+  margin: 0;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  transition: font-size 0.3s ease;
+}
+
+.navSide a,
+.navSideRight a,
+.cartBtn {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #1a1a1a;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, font-size 0.2s ease;
+}
+
+.navSide a:hover,
+.navSideRight a:hover,
+.cartBtn:hover {
+  opacity: 0.6;
+}
+
+/* Botón Hamburguesa oculto por defecto en escritorio */
+.hamburgerBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.hamburgerBtn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #1a1a1a;
+}
+
+/* --- ESTILOS DEL MENÚ LATERAL MÓVIL --- */
+.mobileOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.overlayVisible { opacity: 1; visibility: visible; }
+
+.mobileDrawer {
+  position: fixed;
+  top: 0; left: 0; /* Se despliega desde el lado izquierdo */
+  width: 300px; height: 100vh;
+  background: white;
+  z-index: 2001;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawerOpen { transform: translateX(0); }
+
+.drawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.drawerHeader h2 { font-size: 14px; letter-spacing: 2px; margin: 0; }
+
+.closeBtn { background: none; border: none; font-size: 20px; cursor: pointer; }
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobileNavLinks a {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+/* --- RESPONSIVE / ADAPTABLE ANTES DE LA HAMBURGUESA --- */
+@media (max-width: 1100px) {
+  .navSide, .navSideRight {
+    gap: 15px;
+  }
+  .navSide a, .navSideRight a, .cartBtn {
+    font-size: 11px;
+    letter-spacing: 0.8px;
+  }
+  .logo h1 {
+    font-size: 32px;
+  }
+}
+
+/* --- CAMBIO A MENÚ HAMBURGUESA EN PANTALLAS PEQUEÑAS (< 768px) --- */
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+    height: 80px;
+    padding: 0 4%;
+  }
+
+  .navSide, .navSideRight {
+    display: none; /* Oculta los links de texto convencionales */
+  }
+
+  .hamburgerBtn {
+    display: flex; /* Muestra el botón hamburguesa a la izquierda */
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .logo h1 {
+    font-size: 24px; /* El título se queda y se adapta perfectamente en el centro */
+  }
+
+  .cartBtn {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,380 @@
+/* --- CONFIGURACIÓN GLOBAL --- */
+.container {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* --- SECCIÓN 0: HERO MANIFIESTO --- */
+.heroSection {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10%;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+}
+
+.overline {
+  color: #d4af37;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  display: block;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.manifiesto h2 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 200;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  max-width: 1000px;
+}
+
+/* --- SECCIÓN 1: GALLERY (SILUETAS) --- */
+.gallerySection {
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: #000;
+}
+
+.titleHeader {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.titleHeader h1 {
+  font-size: 1.1rem;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  color: #d4af37;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.scrollText {
+  font-size: 0.55rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  display: block;
+}
+
+.productCarouselContainer {
+  height: 900px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.productCarouselContainer::-webkit-scrollbar { display: none; }
+
+.productGrid {
+  display: flex;
+  padding: 0 10vw;
+}
+
+.modelCard {
+  top: 100px;
+  min-width: 25vw;
+  height: 450px;
+  margin: 0 25px;
+  cursor: pointer;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modelCard:hover {
+  transform: translateY(-20px);
+}
+
+.cardImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
+}
+
+.modelInfo {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.modelInfo h3 {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* --- SECCIÓN 2: VISOR OVERLAY (DETALLE) --- */
+.detailOverlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 10000;
+  display: flex;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.detailContent { display: flex; width: 100%; height: 100%; }
+
+.sidebarControls {
+  width: 90px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  background: #050505;
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.btnActive { color: #d4af37; border-left: 2px solid #d4af37; padding-left: 6px; }
+
+.visualCanvas {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.shoeBaseLarge { height: 80vh; object-fit: contain; }
+
+.closeBtn {
+  position: absolute;
+  top: 40px; right: 40px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* --- SECCIÓN 3: DIVISOR PARALLAX --- */
+.parallaxDivider {
+  height: 20vh;
+  background-image: url('https://images.unsplash.com/photo-1554062975-c3455521f1ce?q=80&w=2000');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.dividerOverlay {
+  height: 100%; width: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.dividerOverlay h2 { font-size: 2.2rem; font-weight: 100; letter-spacing: 15px; text-transform: uppercase; }
+
+/* --- SECCIÓN 4: MATERIALES (SWATCHES) --- */
+.materialsShowcase {
+  background: #fff;
+  padding: 120px 0 0 0;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.materialsHeader { text-align: center; margin-bottom: 60px; }
+.materialsHeader h2 { font-size: 2.5rem; letter-spacing: 15px; text-transform: uppercase; font-weight: 200; }
+
+.stepNumber {
+  display: block;
+  font-family: serif;
+  font-size: 1.5rem;
+  color: #d4af37;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.swatchesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.swatchItem { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.swatchCircle {
+  width: 120px; height: 120px; border-radius: 50%; border: 1px solid #eee;
+  overflow: hidden; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.swatchCircle img { width: 100%; height: 100%; object-fit: cover; }
+.swatchActive .swatchCircle { border: 3px solid #000; transform: scale(1.1) translateY(-10px); }
+
+.swatchName { margin-top: 15px; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: #bbb; }
+.swatchActive .swatchName { color: #000; font-weight: 700; }
+
+/* --- SECCIÓN 5: EXPANSIÓN (EFECTO CORTINA ENROLLADA) --- */
+.expansionWrapper {
+  height: 100vh;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+  transition:
+    max-height 1.4s cubic-bezier(0.7, 0, 0.3, 1),
+    opacity 0.8s ease-in-out,
+    transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+  transform: translateY(-20px) scaleY(0.95);
+  transform-origin: top;
+}
+
+.expansionWrapper.expanded {
+  max-height: 100%;
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+}
+
+.materialExplainerInline {
+  display: flex;
+  width: 100%;
+  min-height: 85vh;
+}
+
+.explainerLeft {
+  width: 55%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.explainerLeft img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 3s ease;
+}
+
+.expanded .explainerLeft img { transform: scale(1.05); }
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.explainerTextOverlay {
+  position: absolute;
+  bottom: 350px;
+  left: 100px;
+  z-index: 2;
+  color: #fff;
+}
+
+.explainerTextOverlay h1 { font-size: 4rem; font-weight: 100; letter-spacing: 12px; text-transform: uppercase; }
+
+.explainerRight {
+  width: 45%;
+  background: #f5f5f5;
+  padding: 80px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  z-index: 5;
+}
+
+.closeExplainer {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: #fff;
+  border: 1px solid #ddd;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.4s;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.closeExplainer:hover { background: #000; color: #fff; transform: rotate(90deg); }
+
+.catTitle {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.colorNode { cursor: pointer; text-align: center; }
+.colorSquare { aspect-ratio: 1; border: 1px solid #eee; transition: 0.4s; overflow: hidden; background: #fff; }
+.colorSquare img { width: 100%; height: 100%; object-fit: cover; }
+.activeNode .colorSquare { border: 2px solid #000; transform: scale(1.05); }
+.nodeName { font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-top: 8px; display: block; }
+
+/* --- SECCIÓN 6: CALCE PERFECTO (antes Sección 7) ---
+   NOTA: la sección de "Ingeniería" (heels/soles/straps) se eliminó del
+   JS al recortar personalizacion.js, así que sus clases
+   (.engineeringSection, .engineeringGrid, .engineeringInfo, .techSpecs,
+   .specItem) se quitaron de este archivo por no tener uso. */
+.sizeGuideSection { background: #f9f9f9; padding: 80px 10%; }
+.sizeGuideBanner {
+  background: #fff; border: 1px solid #eee; display: flex;
+  justify-content: space-between; align-items: center; padding: 60px 80px; color: #000;
+}
+.sizeOverline { color: #d4af37; text-transform: uppercase; letter-spacing: 4px; font-size: 0.6rem; margin-bottom: 8px; }
+.sizeText h2 { font-size: 2rem; font-weight: 200; letter-spacing: 10px; text-transform: uppercase; }
+.sizeBtn { background: #000; color: #fff; border: none; padding: 18px 50px; text-transform: uppercase; letter-spacing: 4px; cursor: pointer; transition: 0.4s; }
+.sizeBtn:hover { background: #d4af37; }
+
+/* --- FOOTER CTA --- */
+.footerCTA { height: 45vh; display: flex; align-items: center; justify-content: center; background: #fff; color: #000; }
+.ctaContent { text-align: center; }
+.ctaContent h3 { font-size: 1.3rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 200; margin-bottom: 30px; }
+.finalBtn { background: #000; color: #fff; border: none; padding: 20px 80px; text-transform: uppercase; letter-spacing: 5px; cursor: pointer; transition: 0.5s; }
+.finalBtn:hover { background: #d4af37; transform: translateY(-5px); }
+
+/* --- UTILS --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.skeletonPulse { animation: loadingPulse 1.8s infinite ease-in-out; }
+@keyframes loadingPulse {
+  0% { background-color: #f0f0f0; }
+  50% { background-color: #e0e0e0; }
+  100% { background-color: #f0f0f0; }
+}
