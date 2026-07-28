@@ -5,7 +5,7 @@ export default function ComunidadPage() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.overline}>Comunidad</div>
-      <h1 className={styles.title}>Un espacio para bailarines y profesionales Lina Heels</h1>
+      <h1 className={styles.title}>Un espacio para tu comunidad</h1>
       <p className={styles.description}>
         Esta sección representaría contenido generado por usuarios: reseñas con
         fotos, testimonios de clientes y una vitrina de la comunidad que usa
